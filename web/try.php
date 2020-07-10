@@ -1,21 +1,21 @@
 <?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "123456";
-	$dbname = "team_project";
+    $servername = "localhost";
+    $username = "root";
+    $password = "08socuteya";
+    $dbname = "mermaid";
 
-	// Create connection
-	$conn = new mysqli($servername, $username, $password, $dbname);
-	// Check connection
-	if ($conn->connect_error) {
-	    die("Connection failed: " . $conn->connect_error);
-	}
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>World Happiness</title>
+    <title>World Happiness</title>
     <style>
         table, td, th {
             border: 1px solid black;
@@ -37,97 +37,102 @@
             height: 30px;
         }
 
-        label, option {
+        label, option, span, h2 {
             font-family: courier;
         }
+
+        .btn {
+            font-family: courier;
+        }
+
     </style>
 </head>
 <body>
     <h2>Filter</h2>   
-	<form action="try.php" method="get">
+    <form action="try.php" method="get">
         <label>Region:</label>
-		<select name="region">
+        <select name="region">
             <option value="NORTHERN AMERICA">Northern America</option> <!--NORTHERN AMERICA-->
-            <option value="LATIN AMER. & CARIB">Latin America & the Caribbean</option> <!--LATIN AMER. & CARIB-->	    
+            <option value="LATIN AMER. & CARIB">Latin America & the Caribbean</option> <!--LATIN AMER. & CARIB-->       
             <option value="WESTERN EUROPE"> Western Europe </option> <!--WESTERN EUROPE-->
-		    <option value="EASTERN EUROPE"> Eastern Europe </option> <!--EASTERN EUROPE-->
+            <option value="EASTERN EUROPE"> Eastern Europe </option> <!--EASTERN EUROPE-->
             <option value="BALTICS"> Baltics </option> <!--BALTICS-->
             <option value="ASIA (EX. NEAR EAST)"> Asia </option> <!--ASIA (EX. NEAR EAST)-->
             <option value="NEAR EAST">Near East</option> <!--NEAR EAST-->
-		    <option value="OCEANIA">Oceania</option> <!--OCEANIA-->
+            <option value="OCEANIA">Oceania</option> <!--OCEANIA-->
             <option value="NORTHERN AFRICA">Northern Africa</option> <!--NORTHERN AFRICA-->
             <option value="SUB-SAHARAN AFRICA">Sub-Saharan Africa</option> <!--SUB-SAHARAN AFRICA-->
             <option value="C.W. OF IND. STATES">Others</option> <!--C.W. OF IND. STATES-->
             <option value="No" selected>I don't care</option>
-		</select><br>
+        </select><br>
 
-		<label>Income:</label>
-		<select name="income">
-		    <option value="0~10000"><10000</option>
-		    <option value="10000~30000">10000~30000</option>
+        <label>Income:</label>
+        <select name="income">
+            <option value="0~10000"><10000</option>
+            <option value="10000~30000">10000~30000</option>
             <option value="30000~50000">30000~50000</option>
             <option value="50000~70000">50000~70000</option>
             <option value="70000~90000">70000~90000</option>
             <option value="90000~110000">90000~110000</option>
             <option value="110000~999999999">>110000</option>
             <option value="No" selected>I don't care</option>
-		</select><br>
+        </select><br>
         
 
         <label>Life Expectancy:</label>
-		<select name="life_expectancy">
-		    <option value="30~40">30~40</option>
-		    <option value="40~50">40~50</option>
+        <select name="life_expectancy">
+            <option value="30~40">30~40</option>
+            <option value="40~50">40~50</option>
             <option value="50~60">50~60</option>
             <option value="60~70">60~70</option>
             <option value="70~80">70~80</option>
             <option value="80~90">80~90</option>
             <option value="No" selected>I don't care</option>
-		</select><br>
+        </select><br>
 
         <label>Net Migrants:</label>
-		<select name="net_migrants">
-		    <option value="-700000~-350000">-700000~-350000</option>
-		    <option value="-350000~0">-350000~0</option>
-		    <option value="0~300000">0~300000</option>
-		    <option value="300000~600000">300000~600000</option>
+        <select name="net_migrants">
+            <option value="-700000~-350000">-700000~-350000</option>
+            <option value="-350000~0">-350000~0</option>
+            <option value="0~300000">0~300000</option>
+            <option value="300000~600000">300000~600000</option>
             <option value="600000~900000">600000~900000</option>
             <option value="No" selected>I don't care</option>
-		</select><br>
+        </select><br>
 
         <label>Population:</label>
-		<select name="population">
-		    <option value="0~50000000"><50000000</option>
-		    <option value="50000000~60000000">50000000~60000000</option>
-		    <option value="60000000~70000000">60000000~70000000</option>
+        <select name="population">
+            <option value="0~50000000"><50000000</option>
+            <option value="50000000~60000000">50000000~60000000</option>
+            <option value="60000000~70000000">60000000~70000000</option>
             <option value="70000000~80000000">70000000~80000000</option>
             <option value="80000000~90000000">80000000~90000000</option>
             <option value="90000000~100000000">90000000~100000000</option>
             <option value="100000000~9999999999999">>100000000</option>
             <option value="No" selected>I don't care</option>
-		</select><br>
+        </select><br>
 
         <label>Schooling Years:</label>
-		<select name="schooling_years">
-		    <option value="0~5">0~5</option>
-		    <option value="5~10">5~10</option>
-		    <option value="10~15">10~15</option>
-		    <option value="15~20">15~20</option>
+        <select name="schooling_years">
+            <option value="0~5">0~5</option>
+            <option value="5~10">5~10</option>
+            <option value="10~15">10~15</option>
+            <option value="15~20">15~20</option>
             <option value="No" selected>I don't care</option>            
-		</select><br>
-        <input type="submit" name = "submit-search" value ="submit" font-family: courier><br>   
-	</form>
+        </select><br>
+        <input type="submit" name="submit-search" value="submit" class="btn"><br>   
+    </form>
 
-	<h2>Results</h2>
-	<div>
+    <h2>Results</h2>
+    <div>
         
-		<?php
+        <?php
 
-			// Query database
-			$sql = "SELECT country FROM countries";
+            // Query database
+            $sql = "SELECT country FROM countries";
 
-			// If the search button is clicked
-			if (isset($_GET['submit-search'])) {
+            // If the search button is clicked
+            if (isset($_GET['submit-search'])) {
                 $flag = 1;
                 $region = mysqli_real_escape_string($conn, $_GET['region']);
                 if ($region == "No") {
@@ -192,7 +197,7 @@
                
                 //echo "I love you" . "<br>";
 
-				
+                
                 // $sql = "SELECT DISTINCT countries.country, countries.Region, countriesdata.Income, countriesdata.life_expec, population_by_country.Migrants, population_by_country.Population
                 //     FROM countries, countriesdata , data2015 , life_expectancy_data , population_by_country 
                 //     WHERE 
@@ -226,12 +231,12 @@
                 }
                 $sql = $sql . "ORDER BY data2015.HappinessRank";
                 //echo $sql;
-			}
-			
-			$result = $conn->query($sql);
+            }
+            
+            $result = $conn->query($sql);
             //echo "!!!";
-			if ($result->num_rows > 0) {
-		    	// output data of each row
+            if ($result->num_rows > 0 && isset($_GET['submit-search'])) {
+                // output data of each row
                 echo "<table>";
                 echo "<tr>";
                 echo "<th>Happiness<br>Rank</th>";
@@ -251,7 +256,7 @@
                 echo "<th>Generosity</th>";
                 echo "<th>Dystopia<br>Residual</th>";
                 echo "</tr>";
-			    while($row = $result->fetch_assoc()) {
+                while($row = $result->fetch_assoc()) {
                     echo "<tr>";
                     echo "<td>" . $row["HappinessRank"] . "</td>";
                     echo "<td>" . $row["country"] . "</td>";
@@ -270,61 +275,65 @@
                     echo "<td>" . number_format((float)$row["Generosity"], 2, '.', '') . "</td>";
                     echo "<td>" . number_format((float)$row["DystopiaResidual"], 2, '.', '') . "</td>";
                     // HappinessScore Standard Error  Economy (GDP per Capita)    Family  Health (Life Expectancy)    Freedom Trust (Government Corruption)   Generosity  DystopiaResidual
-			        
+                    
                     echo "</tr>";
-			    }
+                }
                 echo "</table>";
-			} else {
-			    echo "0 results";
-			}
-		?>
-	</div>
-	<h2>Comment</h2>
-	<div>
-		<form name = "board" action = "try.php" method = "post">
-			<p>暱稱</p>
-			<p><input type = "text" name = "name"></p>
-			<p>主題</p>
-			<p><input type = "text" name = "subject"></p>
-			<p>留言</p>
-			<p><textarea style = "width:550px; height:100px;" name = "content"></textarea></p>
-			<p><input type = "submit" name = "submit" value = "提交">
-		<div class = "note full-height">
-			<?php
-				if(isset($_POST['submit']))
-				{
-					$name = $_POST['name'];
-					$subject = $_POST['subject'];
-					$content = $_POST['content'];
-					$sql = "INSERT guestbook(name, subject, content, time) VALUES ('$name', '$subject', '$content', now())";
-					if(!mysqli_query($conn, $sql))
-					{
-						die(mysqli_error());
-					}
-					else
-					{
-						echo"<script>window.location.href='try.php';</script>";
-					}
-				}
-				$sql = "select * from guestbook order by time desc limit 5";
-				$sql_ = "select * from guestbook";
-				$result = mysqli_query($conn, $sql);
-				$result_ = mysqli_query($conn, $sql_);
-				while($row = mysqli_fetch_assoc($result))
-				{
-					echo "<br>暱稱：" . $row['name'];
-					echo "<br>主題：" . $row['subject'];
-					echo "<br>留言：" . nl2br($row['content']) . "<br>";
-					echo "時間：" . $row['time'] . "<br>";
-					echo "<hr>";
-				}
-				echo "<br>";
-				echo '<div class="bottom left position-abs content">';
-				echo "一共有" . mysqli_num_rows($result_) . "則留言";
-				echo "<br>目前顯示最新5則留言";
-			?>
-			</div>
-		</div>
-	</div>
+            } 
+            else if ($result->num_rows == 0 && isset($_GET['submit-search'])) {
+                echo "<span>0 result</span>";
+            }
+            else {
+                echo "<span>Please set at least one condition!</span>";
+            }
+        ?>
+    </div>
+    <h2>留言板</h2>
+    <div>
+        <form name = "board" action = "try.php" method = "post">
+            <p>暱稱</p>
+            <p><input type = "text" name = "name"></p>
+            <p>主題</p>
+            <p><input type = "text" name = "subject"></p>
+            <p>留言</p>
+            <p><textarea style = "width:550px; height:100px;" name = "content"></textarea></p>
+            <p><input type = "submit" name = "submit" value = "提交">
+        <div class = "note full-height">
+            <?php
+                if(isset($_POST['submit']))
+                {
+                    $name = $_POST['name'];
+                    $subject = $_POST['subject'];
+                    $content = $_POST['content'];
+                    $sql = "INSERT guestbook(name, subject, content, time) VALUES ('$name', '$subject', '$content', now())";
+                    if(!mysqli_query($conn, $sql))
+                    {
+                        die(mysqli_error());
+                    }
+                    else
+                    {
+                        echo"<script>window.location.href='try.php';</script>";
+                    }
+                }
+                $sql = "select * from guestbook order by time desc limit 5";
+                $sql_ = "select * from guestbook";
+                $result = mysqli_query($conn, $sql);
+                $result_ = mysqli_query($conn, $sql_);
+                while($row = mysqli_fetch_assoc($result))
+                {
+                    echo "<br>暱稱：" . $row['name'];
+                    echo "<br>主題：" . $row['subject'];
+                    echo "<br>留言：" . nl2br($row['content']) . "<br>";
+                    echo "時間：" . $row['time'] . "<br>";
+                    echo "<hr>";
+                }
+                echo "<br>";
+                echo '<div class="bottom left position-abs content">';
+                echo "一共有" . mysqli_num_rows($result_) . "則留言";
+                echo "<br>目前顯示最新5則留言";
+            ?>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
