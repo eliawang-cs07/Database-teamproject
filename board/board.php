@@ -10,16 +10,16 @@
 	<body>
 		<form name = "board" action = "board.php" method = "post">
 			<p>暱稱</p>
-            <p><input type="text" name="name"></p>
+            <p><input type = "text" name = "name"></p>
             <p>主題</p>
-            <p><input type="text" name="subject"></p>
+            <p><input type = "text" name = "subject"></p>
             <p>留言</p>
-            <p><textarea style = "width:550px;height:100px;" name="content"></textarea></p>
-            <p><input type="submit" name="submit" value="SEND">
-		<div class="flex-center position-ref full-height">
-			<div class="top-right home"></div>
+            <p><textarea style = "width:550px; height:100px;" name = "content"></textarea></p>
+            <p><input type = "submit" name = "submit" value = "提交">
+		<div class= "flex-center position-ref full-height">
+			<div class = "top-right home"></div>
 		</div>
-		<div class="note full-height">
+		<div class = "note full-height">
 			<?php
 				session_start();
 				$sql = "select * from guestbook order by time desc limit 5";
